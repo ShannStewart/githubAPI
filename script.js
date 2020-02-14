@@ -32,7 +32,12 @@ function gitAPI(){
     console.log("search: " + searchURL); 
     
     fetch(searchURL)
-    .then(response => response.json())
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }
+        throw new Error(response.statusText);
+    })
     .then(responseJSON => getRepo(responseJSON))
     .catch(err => alert('what is this noise?'));
 

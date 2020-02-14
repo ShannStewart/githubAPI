@@ -47,6 +47,16 @@ function getRepo(userRepo){
     console.log("getRepo ran");
     console.log(userRepo);
 
+    let projectName = "<p>" + userRepo[0].name + "</p>";
+    console.log("Name: " + projectName);
+    let projectURL = "<p>" + userRepo[0].html_url + "</p>";
+    console.log("URL: " + projectURL);
+    let projectInfo = projectName + projectURL;
+
+    $('#results-list').append(
+        projectInfo
+    );
+
 }
 
 $(readyFunctions);
